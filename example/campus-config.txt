@@ -1,0 +1,51 @@
+// folder with input images
+[PATH]/tud-campus-sequence/
+\\
+// output folder
+[PATH]\results\
+\\
+// width of a bounding box at each scale corresponding to detection
+40
+\\
+// height of a bounding box at each scale corresponding to detection
+84
+\\
+// number of scales for multi-scale detection
+5
+\\
+// resize images before detection by this coefficient
+0.55
+\\
+//forest name
+[PATH]\pedestrian.dat
+\\
+//size of patch in a forest
+16
+\\
+// half of maximum width of object in the data used for training the forest
+30
+\\
+// half of maximum height of object in the data used for training the forest
+45
+\\
+// bias of background cost, parameter of detection algorithm
+8.5
+\\
+// penalty for adding a hypothesis, parameter of detection algorithm
+1500
+\\
+//only patches with probabilities to belong to background lower than this threshold can vote
+0.7
+\\
+//minimal allowed probability of a patch to belong to object, if probability is lesser the vote is ignored
+0.00005
+\\
+// radius of blur for hough images
+5
+\\
+// size of images at subsequent scales differ by coefficient 
+0.85
+\\
+// maximum number of objects in an image
+8
+	
