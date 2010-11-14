@@ -22,4 +22,4 @@ public:
   std::vector<CvPoint2D64f> offsets;
   double blurRadius;
 
-};
+}; // end of class CVote

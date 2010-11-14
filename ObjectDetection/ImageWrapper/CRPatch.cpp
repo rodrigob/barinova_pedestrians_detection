@@ -6,7 +6,8 @@
 //#include <omp.h>
 //#endif
 
-
+#include <cstdio>
+#include <cmath>
 #include <deque>
 
 using namespace std;
@@ -128,7 +129,7 @@ void CRPatch::extractFeatureChannelsHOG6(IplImage *img, std::vector<IplImage*>& 
     for( y = 0; y < size.height; y++, dataX += stepX, dataY += stepY, dataZ += stepZ  )
       for( x = 0; x < size.width; x++ ) {
         // Avoid division by zero
-        float tx = (float)dataX[x] + (float)_copysign(0.000001f, (float)dataX[x]);
+        float tx = (float)dataX[x] + (float) copysign(0.000001f, (float)dataX[x]);
         // Scaling [-pi/2 pi/2] -> [0 80*pi]
         dataZ[x]=uchar( ( atan((float)dataY[x]/tx)+3.14159265f/2.0f ) * 80 ); 
       }
@@ -254,7 +255,7 @@ void CRPatch::extractFeatureChannelsGrayHOG6(IplImage *img, std::vector<IplImage
 
     for( y = 0; y < size.height; y++, dataX += stepX, dataY += stepY, dataZ += stepZ  )
         for( x = 0; x < size.width; x++ ) {
-            float tx = (float)dataX[x] + (float)_copysign(0.000001f, (float)dataX[x]);
+            float tx = (float)dataX[x] + (float) copysign(0.000001f, (float)dataX[x]);
             dataZ[x]=uchar( ( atan((float)dataY[x]/tx)+3.14159265f/2.0f) * 80 );
             //cout << (int)uchar( (atan((float)dataY[x]/tx)+3.14159265f/2.0f ) * 80 ) << " ";
         }

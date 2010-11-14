@@ -1,6 +1,8 @@
 #pragma once
 
-#include "math.h"
+#include <cmath>
+
+#ifdef WIN32
 #using <mscorlib.dll>
 using namespace System;
 
@@ -13,6 +15,16 @@ inline float safeLog(double val)
   float x = (longValue >> 32);
   return (x - 1072632447.0f) / 1512775.0f;
 }
+
+#else
+
+// fast implementation of logarithm
+inline float safeLog(double val) 
+{
+  return std::log(val);
+}
+
+#endif
 
 //inline double safeLog(double in_dX)
 //{

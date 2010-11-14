@@ -23,23 +23,9 @@ project (ObjectDetection)
 # Setup require libraries
 #pkg_check_modules(libpng REQUIRED libpng)
 pkg_check_modules(opencv REQUIRED opencv>=2.1)
-#set(vw_LIBRARIES "-lvwCore -lvwImage -lvwStereo -lvwFileIO -lvwMath -lvwInterestPoint")
 
 # ----------------------------------------------------------------------
 # Setup link and include directories
-
-set(local_LIBRARY_DIRS
-  "/users/visics/rbenenso/no_backup/usr/local/lib"
-  "/usr/lib64"
-  "/usr/lib64/atlas"
-  "/usr/lib/sse2/atlas"
-)
-set(local_INCLUDE_DIRS
-  "/users/visics/rbenenso/no_backup/usr/local/include"
-  "/usr/include/eigen2/"
-   "/usr/local/include/eigen2"
-)
-
 
 link_directories(
 	${libpng_LIBRARY_DIRS} 
@@ -47,7 +33,6 @@ link_directories(
 )
 include_directories(
 	"../Utils/" 
-	"${biclop_root}/src" 
 	${libpng_INCLUDE_DIRS} 
 	${opencv_INCLUDE_DIRS} 
 )
@@ -57,6 +42,7 @@ include_directories(
 
 
 file(GLOB SrcCpp 
+	"../*.cpp"
 	"../DenseGreedyDetection/*.cpp"
 	"../Forests/*.cpp"
 	"../ImageWrapper/*.cpp"
