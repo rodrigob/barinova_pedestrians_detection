@@ -21,25 +21,21 @@ project (ObjectDetection)
 
 # ----------------------------------------------------------------------
 # Setup require libraries
-#pkg_check_modules(libpng REQUIRED libpng)
 pkg_check_modules(opencv REQUIRED opencv>=2.1)
 
 # ----------------------------------------------------------------------
 # Setup link and include directories
 
 link_directories(
-	${libpng_LIBRARY_DIRS} 
 	${opencv_LIBRARY_DIRS}
 )
 include_directories(
 	"../Utils/" 
-	${libpng_INCLUDE_DIRS} 
 	${opencv_INCLUDE_DIRS} 
 )
 
 # ----------------------------------------------------------------------
 # Collect source files
-
 
 file(GLOB SrcCpp 
 	"../*.cpp"
@@ -49,27 +45,19 @@ file(GLOB SrcCpp
 	"../Utils/*.cpp"
 )
 
-
 # ----------------------------------------------------------------------
 # Create the executable
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g -p ${OPT_CXX_FLAGS}")
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -DNDEBUG ${OPT_CXX_FLAGS}")
+set(OPT_CXX_FLAGS "-O3 -fopenmp -funroll-loops -march=native -mtune=native --fast-math -mfpmath=sse -msse3 ")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g -p ${OPT_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -DNDEBUG ${OPT_CXX_FLAGS}")
 
 add_executable(object_detection ${SrcCpp})
 
 target_link_libraries(object_detection
-
-   ${cg_LIBRARIES}
-   # linking with CgGL _after_ boost_program_options generates a segmentation fault ! boost_program_options 1.39 has a bug
-
-   boost_program_options-mt boost_filesystem-mt boost_system-mt boost_thread-mt protobuf
-   SDL
-   gomp Xext Xrandr X11
-   ${libpng_LIBRARIES} 
+   boost_filesystem-mt boost_system-mt 
+   #boost_thread-mt
+   gomp 
    ${opencv_LIBRARIES}
-
-   #csparse sparse spblas mv
-   lapack blas atlas
 )   
  
 # ----------------------------------------------------------------------

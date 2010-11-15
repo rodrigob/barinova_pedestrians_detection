@@ -8,7 +8,7 @@ Please visit [the project website for more details](http://graphics.cs.msu.ru/en
 License
 -------
 
-This derivative work follows the Microsoft Research Shared Source license, which allows only non-comercial work.  
+This derivative work follows the Microsoft Research Shared Source license, which allows _only non-comercial_ usage.  
 See original README.txt and MSR-SSLA.txt for more details. 
 
 Citing in publications
@@ -31,7 +31,10 @@ This linux version requires:
 
 - [Cmake](http://www.cmake.org)
 - [OpenCV](http://opencv.willowgarage.com)
-- [Boost](http://www.boost.org/)
+- [Boost](http://www.boost.org)
+- [Pkg-config](http://pkg-config.freedesktop.org)
+
+All of these are provided as packages in the mainstream linux distributions.
 
 Compiling
 ---------
