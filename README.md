@@ -2,15 +2,13 @@
 Pedestrians detection using Hough forests
 ==========================================
 
-This a linux port of the original code provided by Olga Barinova from the Vision Group at Moscow State University, 2010.
-
+This a linux port of the original code provided by Olga Barinova from the Vision Group at Moscow State University, 2010.  
 Please visit [the project website for more details](http://graphics.cs.msu.ru/en/science/research/machinelearning/hough).
 
 License
 -------
 
-This derivative work follows the Microsoft Research Shared Source license, which allows only non-comercial work.
-
+This derivative work follows the Microsoft Research Shared Source license, which allows only non-comercial work.  
 See original README.txt and MSR-SSLA.txt for more details. 
 
 Citing in publications
@@ -19,10 +17,8 @@ Citing in publications
 When using this software, please acknowledge the effort that 
 went into development by referencing the paper:
 
-> Barinova O., Lempitsky V., Kohli P., 
->
-> On detection of multiple object instances using Hough transform, 
->
+> Barinova O., Lempitsky V., Kohli P.,  
+> On detection of multiple object instances using Hough transform,  
 > IEEE Conference on Computer Vision and Pattern Recognition (CVPR'10), 2010.
 
 Note that this is not the original software that was used for the paper mentioned above. 
